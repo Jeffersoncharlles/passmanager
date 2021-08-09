@@ -45,7 +45,7 @@ export function RegisterLoginData() {
       id: String(uuid.v4()),
       ...formData
     }
-    const datakey = '@passmanager:logins';
+    const datakey = '@savepass:logins';
     try {
       const data = await AsyncStorage.getItem(datakey);
       const currentData = data ? JSON.parse(data) : [] ;

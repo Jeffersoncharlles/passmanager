@@ -29,7 +29,7 @@ export function Home() {
 
   async function loadData() {
     // Get asyncStorage data, use setSearchListData and setData
-    const datakey = '@passmanager:logins';
+    const datakey = '@savepass:logins';
     const response = await AsyncStorage.getItem(datakey);
 
     if (!response) return;
