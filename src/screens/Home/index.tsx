@@ -49,16 +49,25 @@ export function Home() {
   function handleFilterLoginData(search: string) {
     // Filter results inside data, save with setSearchListData
 
-    const FilterLoginDataFormatted = data.filter(item=>{
+    // const FilterLoginDataFormatted = data.filter(item=>{
      
-      if (item.title.indexOf(search) > - 1) {
-        return true;
-      }else{
-        return false;
-      }
+    //   if (item.title.indexOf(search) > - 1) {
+    //     return true;
+    //   }else{
+    //     return false;
+    //   }
       
-    });
-    setSearchListData(FilterLoginDataFormatted);
+    // });
+    // setSearchListData(FilterLoginDataFormatted);
+    if (!search) {
+      loadData()
+    }else{
+      setSearchListData(oldState => oldState.filter(
+        login => login.title.toLowerCase().includes(
+          search.toLowerCase()
+        )
+      ))
+    }
   }
 
   return (
