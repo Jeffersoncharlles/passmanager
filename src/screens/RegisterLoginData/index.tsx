@@ -28,6 +28,8 @@ const schema = Yup.object().shape({
   password: Yup.string().required('Senha é obrigatória!'),
 })
 
+const datakey = '@passmanager:logins';
+
 export function RegisterLoginData() {
   const {
     control,
@@ -37,8 +39,6 @@ export function RegisterLoginData() {
       errors
     }
   } = useForm( { resolver: yupResolver(schema) });
-
-  const datakey = '@passmanager:logins';
 
   async function handleRegister(formData: FormData) {
     const newLoginData = {
